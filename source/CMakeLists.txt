@@ -1,14 +1,14 @@
 # Possible implementation values is C_IMG
 set(IMPLEMENTATION_TYPE C_IMG)
-
-set(src main.cpp)
-set(libs)
+set(SRC main.cpp )
 
 if("${IMPLEMENTATION_TYPE}" STREQUAL "C_IMG")
-    set(c_image_path implementations/c_image)
-    set(src "${src}\;${c_image_path}/image_context.cpp")
-
+    set(C_IMAGE_PATH implementations/c_image)
     find_package(X11 REQUIRED)
+    set(SRC ${SRC} ${C_IMAGE_PATH}/c_image_context_png.cpp
+            ${C_IMAGE_PATH}/c_image_context_base.cpp
+            ${C_IMAGE_PATH}/c_image_context_window.cpp
+            ${C_IMAGE_PATH}/c_image_context_window.h)
 
     if(NOT ${X11_FOUND})
         message(SEND_ERROR "Cannot find X11 library")
@@ -16,9 +16,9 @@ if("${IMPLEMENTATION_TYPE}" STREQUAL "C_IMG")
 
     include_directories(${X11_INCLUDE_DIR})
     link_directories(${X11_LIBRARIES})
-    set(libs ${X11_LIBRARIES})
+    set(LIBS ${X11_LIBRARIES})
 endif()
 
-message(${src})
-add_executable(${PROJECT_NAME} ${src})
-target_link_libraries(${PROJECT_NAME} ${libs})
+message(${SRC})
+add_executable(${PROJECT_NAME} ${SRC})
+target_link_libraries(${PROJECT_NAME} ${LIBS})

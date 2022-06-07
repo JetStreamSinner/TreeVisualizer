@@ -1,4 +1,4 @@
-#include "image_context.h"
+#include "c_image_context_base.h"
 
 using namespace cimg_library;
 
@@ -7,30 +7,26 @@ std::array<unsigned, color_components> make_arr_from_color(const Color& color) {
     return {static_cast<unsigned>(color.red), static_cast<unsigned>(color.green), static_cast<unsigned>(color.blue)};
 }
 
-ImageContext::ImageContext(int width, int height, const Color& background) {
+CImageContextBase::CImageContextBase(int width, int height, const Color& background) {
     init_context(width, height, background);
 }
 
-void ImageContext::draw_line(const Point& start, const Point& end, const Color& color) {
+void CImageContextBase::draw_line(const Point& start, const Point& end, const Color& color) {
     const auto color_tuple = make_arr_from_color(color);
     _image->draw_line(start.x, start.y, end.x, end.y, color_tuple.data());
 }
 
-void ImageContext::draw_ellipse(const Point& start, int rad, const Color& color) {
+void CImageContextBase::draw_ellipse(const Point& start, int rad, const Color& color) {
     const auto color_tuple = make_arr_from_color(color);
     _image->draw_ellipse(start.x, start.y, rad, rad, 0, color_tuple.data());
 }
 
-void ImageContext::draw_text(const Point& left_top, const Point& right_bottom, const std::string& text, const Color& color) {
+void CImageContextBase::draw_text(const Point& left_top, const Point& right_bottom, const std::string& text, const Color& color) {
     const auto color_tuple = make_arr_from_color(color);
     _image->draw_text(left_top.x, left_top.y, text.c_str(), color_tuple.data());
 }
 
-void ImageContext::update() {
-    _image->display("Test");
-}
-
-void ImageContext::init_context(int width, int height, const Color& background) {
+void CImageContextBase::init_context(int width, int height, const Color& background) {
     const int default_size_t = 1;
     const int default_size_c = 3;
 
