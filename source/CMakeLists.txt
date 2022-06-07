@@ -1,3 +1,3 @@
-set(src main.cpp tree.cpp tree_node.cpp)
+set(src main.cpp)
 
 add_executable(${PROJECT_NAME} ${src})
