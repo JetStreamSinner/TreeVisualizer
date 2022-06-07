@@ -1,5 +1,6 @@
 [requires]
 cairo/1.17.4
+libpng/1.6.37
 
 [generators]
 cmake

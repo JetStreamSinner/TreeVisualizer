@@ -1,5 +1,7 @@
 #pragma once
 
+#define cimg_use_png
+
 #include <memory>
 #include <array>
 #include "dep/CImg.h"
