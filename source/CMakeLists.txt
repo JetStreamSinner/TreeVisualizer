@@ -1,6 +1,6 @@
 # Possible implementation values is C_IMG
 set(IMPLEMENTATION_TYPE C_IMG)
-set(SRC main.cpp tree_visualizer.cpp)
+set(SRC main.cpp tree_visualizer.cpp tree_node.cpp)
 
 if("${IMPLEMENTATION_TYPE}" STREQUAL "C_IMG")
     set(C_IMAGE_PATH implementations/c_image)

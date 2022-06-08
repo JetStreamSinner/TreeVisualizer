@@ -1,10 +1,17 @@
 #pragma once
 
-struct TreeNode {
-    TreeNode * left;
-    TreeNode * right;
-    int val;
-    TreeNode(int val) : val(val), left(nullptr), right(nullptr) {
+#include "interfaces/i_tree_node.h"
 
-    }
+class TreeNode : public ITreeNode {
+public:
+    TreeNode(int val);
+    ITreeNode* left() final;
+    ITreeNode* right() final;
+    void set_left(ITreeNode * node) final;
+    void set_right(ITreeNode * node) final;
+    int value() const final;
+private:
+    ITreeNode * _left;
+    ITreeNode * _right;
+    int _val;
 };
