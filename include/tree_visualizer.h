@@ -1,8 +1,8 @@
 #pragma once
 
-#include <memory>
 #include "interfaces/i_drawable.h"
 #include "interfaces/i_tree_node.h"
+#include <memory>
 
 class TreeVisualizer {
 public:

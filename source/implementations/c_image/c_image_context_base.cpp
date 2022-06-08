@@ -1,4 +1,4 @@
-#include "c_image_context_base.h"
+#include <implementations/c_image/c_image_context_base.h>
 
 using namespace cimg_library;
 

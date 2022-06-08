@@ -1,4 +1,4 @@
-#include "tree_node.h"
+#include <tree_node.h>
 
 TreeNode::TreeNode(int val) : _val(val), _left(nullptr), _right(nullptr) {
 

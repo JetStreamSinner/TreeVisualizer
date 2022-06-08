@@ -1,5 +1,4 @@
-#include "tree_visualizer.h"
-#include <iostream>
+#include <tree_visualizer.h>
 
 TreeVisualizer::TreeVisualizer(std::shared_ptr<IDrawable> &context) : _draw_context(context) {
 
