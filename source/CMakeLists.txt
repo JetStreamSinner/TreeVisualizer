@@ -1,6 +1,6 @@
 # Possible implementation values is C_IMG
 set(IMPLEMENTATION_TYPE C_IMG)
-set(SRC main.cpp )
+set(SRC main.cpp tree_visualizer.cpp)
 
 if("${IMPLEMENTATION_TYPE}" STREQUAL "C_IMG")
     set(C_IMAGE_PATH implementations/c_image)
@@ -24,6 +24,5 @@ if("${IMPLEMENTATION_TYPE}" STREQUAL "C_IMG")
     set(LIBS ${X11_LIBRARIES} PNG::PNG)
 endif()
 
-message(${SRC})
 add_executable(${PROJECT_NAME} ${SRC})
 target_link_libraries(${PROJECT_NAME} ${LIBS})
